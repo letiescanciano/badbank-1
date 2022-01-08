@@ -1,104 +1,45 @@
+
 import React from 'react';
 import { HashRouter, Route, Link } from 'react-router-dom';
-import * as ReactBootstrap from 'react-bootstrap';
+// import * as ReactBootstrap from 'react-bootstrap';
 import './App.css';
 import logo from './bank-logo.jpg';
 import userContext from './contextProject';
-import { useContext } from 'react';
-
-// const ATMDeposit = ({ onChange, isDeposit, isValid }) => { 
-//   const choice = ['Deposit'];
-//   console.log(`ATM isDeposit: ${isDeposit}`);
-//   return (
-//     <label className="label huge">
-//       <h3> {choice[Number(!isDeposit)]}</h3>
-//       <input id="number-input" type="number" width="200" onChange={onChange}></input>
-//       <input type="submit" disabled={!isValid} width="200" value="Submit" id="submit-input"></input>
-//     </label>
-//   );
-// };
-
-const Account = () => {
-  // let deposit = 0; // state of this transaction
-  // const [deposit, setDeposit] = React.useState(0);
-  const [totalState, setTotalState] = React.useState(0);
-    
-  // const [isDeposit, setIsDeposit] = React.useState(true);
-  // const [atmMode, setAtmMode] = React.useState('');
-  // const [validTransaction, setValidTransaction] = React.useState(false);
-  // const ctx = React.useContext(UserContext);
-
-  let status = `Your Account Balance is $ ${totalState} `;
-  console.log(`Your Account Balance: ${totalState}`);
-  // const handleChange = (event) => {
-  //   console.log(Number(event.target.value));
-  //   if (Number(event.target.value) <= 0) {
-  //     return setValidTransaction(false);
-  //   }
-  //   if (atmMode === 'Cash Back' && Number(event.target.value) > totalState) {
-  //     setValidTransaction(false);
-  //   } else {
-  //     setValidTransaction(true);
-  //   }
-  //   setDeposit(Number(event.target.value));
-  // };
-  const handleSubmit = (event) => {
-    let newTotal = status;
-    setTotalState(newTotal);
-    // setValidTransaction(false);
-    event.preventDefault();
-  };
-
-  // const handleModeSelect = (event) => {
-  //   console.log(event.target.value);
-  //   setAtmMode(event.target.value);
-  //   setValidTransaction(false);
-  //   if (event.target.value === 'Deposit') {
-  //     setIsDeposit(true);
-  //   } else {
-  //     setIsDeposit(false);
-  //   }
-  // };
-
-  return (
-    <div>
-      <p>{status}</p>
-    </div>
-    
-    // <form onSubmit={handleSubmit}>
-    //   <>
-    //     <h2 id="total">{status}</h2>
-    //     <label>Select an action below to continue</label>
-    //     <select onChange={(e) => handleModeSelect(e)} name="mode" id="mode-select">
-    //       <option id="no-selection" value=""></option>
-    //       <option id="balance" value="Balance">
-    //         Balance
-    //       </option>
-    //       {/* <option id="cashback-selection" value="Cash Back">
-    //         Cash Back
-    //       </option> */}
-    //     </select>
-    //     {/* {atmMode && (
-    //       <ATMDeposit
-    //         onChange={handleChange}
-    //         isDeposit={isDeposit}
-    //         isValid={validTransaction}
-    //       ></ATMDeposit>
-    //     )} */}
-    //   </>
-    // </form>
-  );
-};
-
-export default Status;
-// ========================================
-// ReactDOM.render(<Account />, document.getElementById('root'));
+// import { useContext } from 'react';
+import ATMWithdraw from './withdraw';
+import Deposit from './deposit'; 
 
 
 // function Balance(){
-//     return (
-//       <h1>Balance</h1>
-//     )
-//   }
+  // const [totalState, setTotalState] = React.useState(0);
+  // const [totalAmount, setTotalAmount] = React.useState(0);
+  // let status = 'zero';
+//     const ctx = React.useContext(UserContext);
+     
+const Account = () => {
+  const [totalState, setTotalState] = React.useState(0);
+  const [totalAmount, setTotalAmount] = React.useState('');
   
-//   export default Balance;
+  let status = `Account Balance $ ${totalState} `;
+      let Balance = `Your Account Balance is $ ${totalAmount} `;
+          console.log(`Your Account Balance: ${totalAmount}`);
+      const handleChange = (event) => {
+            console.log(Number(event.target.value));
+            setTotalAmount(Number(event.target.value));
+      }
+
+      // const handleSubmit = (event) => {
+      //   let newTotal = Balance;
+      //   setTotalState(newTotal);
+      // // setValidTransaction(false);
+      // event.preventDefault();
+      // }; 
+
+return (
+    <div>
+        <p>Your account balance is ${totalAmount}</p>
+    </div>
+    );
+  };
+
+export default Account;
